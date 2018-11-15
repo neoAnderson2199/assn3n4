@@ -13,7 +13,26 @@ struct var_state *var_state_head;
 
 /*TODO: implement save_state()*/
 void save_state(void *addr, unsigned int size) {
-	struct var/*TODO: save x, g, and p by invoking save_state() on each of them*/
+	struct var
+}
+
+void restore_state() ;
+	
+void signal_handler() {
+	for (int i = 1; i < 32; i++) {
+		signal(i, signal_handler);
+	}
+}
+
+void f() {
+	int x;
+	char *p;
+	x = 11;
+	p = (char *) malloc (ARRAY_SIZE);
+	p[0] = p[1] = 'x';
+	/*TODO: Register signal handler for all the signals*/
+
+	/*TODO: save x, g, and p by invoking save_state() on each of them*/
 
 	/*NOTE: you must save not only p, but also the memory p points to!*/
 	jmp_buf env;
